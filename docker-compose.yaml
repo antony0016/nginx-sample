@@ -1,0 +1,28 @@
+version: '3.3'
+
+services:
+  nginx:
+    container_name: nginx
+    image: nginx:1.25.3-alpine
+    ports:
+      - '80:80'
+    volumes:
+      # frontend volume
+      - ./frontend:/var/www/html/frontend
+      # laravel api volume
+      - ./api:/var/www/html/api
+      # nginx main config
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      # other nginx config
+      - ./nginx/conf.d:/etc/nginx/conf.d
+
+  php-fpm:
+    container_name: php-fpm
+    build:
+      context: .
+      dockerfile: ./php-fpm/Dockerfile
+    volumes:
+      # laravel api volume
+      - ./api:/var/www/html/api
+      # raw php volume
+      - ./php:/var/www/html/php
