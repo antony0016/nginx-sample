@@ -10,3 +10,7 @@ This is a sample for laravel and frontend deployment.
 * rename your laravel project to `/api`
 * put raw php files in `./php`
 * put your nginx config in `./nginx/conf.d`
+
+## Optional
+
+can use this sample repo with traefik.
