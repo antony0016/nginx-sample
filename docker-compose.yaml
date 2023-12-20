@@ -23,7 +23,6 @@ services:
       - "traefik.http.routers.nginx.tls=true"
     networks:
       - traefik_network
-      - mariadb_network
 
   php-fpm:
     container_name: php-fpm
@@ -37,6 +36,7 @@ services:
       - ./php:/var/www/html/php
     networks:
       - mariadb_network
+      - traefik_network
 
 networks:
   traefik_network:
