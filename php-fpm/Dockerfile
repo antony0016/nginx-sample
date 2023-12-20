@@ -1,7 +1,7 @@
 FROM php:8.3-fpm-alpine
 
-# make 
-RUN chown -R www-data:www-data /var/www/html
+# make folder can edit
+RUN chown -R 777 /var/www/html
 
 # Install mysql driver
 RUN docker-php-ext-install pdo pdo_mysql
