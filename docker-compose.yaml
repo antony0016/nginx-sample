@@ -8,7 +8,7 @@ services:
       - '80:80'
     volumes:
       # frontend volume
-      - ./$FRONTEND_FOLDER:/var/www/html/frontend
+      - ./src/$FRONTEND_FOLDER:/var/www/html/frontend
       # laravel api volume
       - ./src/$BACKEND_FOLDER:/var/www/html/api
       # nginx main config
