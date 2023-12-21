@@ -23,6 +23,8 @@ services:
       - "traefik.http.routers.nginx.entrypoints=https"
       - "traefik.http.routers.nginx.tls.certresolver=letsencrypt-production"
       - "traefik.http.routers.nginx.tls=true"
+    command: >
+      sh -c "chown -R www-data:www-data /var/www/html/api && chmod -R 775 /var/www/html/api/storage && php-fpm"
     networks:
       - traefik_network
 
