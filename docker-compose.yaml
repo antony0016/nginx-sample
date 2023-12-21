@@ -11,6 +11,8 @@ services:
       - ./src/$FRONTEND_FOLDER:/var/www/html/frontend
       # laravel api volume
       - ./src/$BACKEND_FOLDER:/var/www/html/api
+      # raw php volume
+      - ./src/$PHP_FOLDER:/var/www/html/php
       # nginx main config
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       # other nginx config
