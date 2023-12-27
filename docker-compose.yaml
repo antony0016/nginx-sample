@@ -27,6 +27,7 @@ services:
       sh -c "chown -R www-data:www-data /var/www/html/api && chmod -R 775 /var/www/html/api/storage && php-fpm"
     networks:
       - traefik_network
+    restart: always
 
   php-fpm:
     container_name: php-fpm
@@ -41,6 +42,7 @@ services:
     networks:
       - mariadb_network
       - traefik_network
+    restart: always
 
 networks:
   traefik_network:
